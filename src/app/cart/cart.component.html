@@ -1,0 +1,186 @@
+<div class="body">
+    <div class="main-wrapper">
+    
+        <app-header></app-header>
+    
+    <section class="page_header">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12 text-center">
+    <h2 class="text-uppercase">Cart</h2>
+    <p>Checkout or add some items to your cart</p>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    <section class="shop-content">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+    <table class="cart-table table table-bordered">
+    <thead>
+    <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+   
+    <tr *ngFor="let demo of demos; let i = index;">
+    <td>
+    <button (click)="delete(demo.ProductId);" class="remove"><i class="fa fa-times"></i></button>
+    </td>
+    <td>
+    <a href="shop_single_full.html"><img src={{demo.ImagePath}} alt="" height="90" width="90"></a>
+    </td>
+    <td>
+    <a href="shop_single_full.html">{{demo.Name}}</a>
+    </td>
+    <td>
+    <span  id = "{{ 'price'+demo.ProductId }}" >£{{demo.Price}}</span>
+    </td>
+     <td>
+    <div class="quantity">
+      
+        <input type="text" [value]=demo.Qty  (change)="QuantityChange(demo.Price,demo.ProductId,i)" id = "{{ 'qty'+demo.ProductId }}"  class="form-control txtQuantity" />
+       
+    </div>
+    </td>
+    <td>
+        <!-- if(demo.Amount==0){
+            <span class="amount" id = "{{ 'amount'+demo.ProductId }}" value="0">£  </span>
+        }
+        else{ -->
+            <!-- <span class="amount" id = "{{ 'amount'+demo.ProductId }}">£{{demo.Amount}}  </span> -->
+            <span class="amount" id = "{{ 'amount'+demo.ProductId }}" value="0">£{{demo.Amount}}</span>
+        <!-- } -->
+  
+    </td>
+    </tr>
+    <tr>
+    <td colspan="6" class="actions">
+    <div class="col-md-6">
+    <div class="coupon form-group">
+    <label>Coupon:</label>
+    <br>
+    <input placeholder="Coupon code" class="form-control" type="text">
+    <button type="submit">Apply</button>
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="cart-btn">
+    <button class="btn btn-default" type="submit">Update Cart</button>
+    <a routerLink="/checkout" class="btn btn-success">Checkout</a>
+    </div>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="cart_totals">
+    <div class="col-md-6 push-md-6 no-padding">
+    <h4 class="text-left">Cart Totals</h4>
+    <br>
+    <table class="table table-bordered col-md-6">
+    <tbody>
+    <tr>
+    <th>Cart Subtotal</th>
+    <td><span class="amount" id="subtotal" value="0">£ 0.00</span></td>
+    </tr>
+    <tr>
+    <th>Shipping and Handling</th>
+    <td>
+    Free Shipping
+    </td>
+    </tr>
+    <tr>
+    <th>Order Total</th>
+    <td><strong><span class="amount" id="ordertotal">£ 0.00</span></strong> </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    
+    <section class="footer">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-4 col-sm-12">
+    <h1>About us</h1>
+    <p>Duis leo justo, condimentum at purus eu,Aenean sed dolor sem. Etiam massa libero, auctor vitae egestas et, accumsan quis nunc.Duis leo justo, condimentum at purus eu, posuere pretium tellus.</p>
+    <a href="about.html">Read more &rarr;</a>
+    </div>
+    <div class="col-md-4  col-sm-6">
+    <h1>Recent post</h1>
+    <div class="footer-blog clearfix">
+    <a href="blog_right_sidebar.html">
+    <img src="assets/img/thumb8.png" class="img-responsive footer-photo" alt="blog photos">
+    <p class="footer-blog-text">Hand picked ingredients for our best customers</p>
+    <p class="footer-blog-date">29 may 2015</p>
+    </a>
+    </div>
+    <div class="footer-blog clearfix last">
+    <a href="blog_right_sidebar.html">
+    <img src="assets/img/thumb9.png" class="img-responsive footer-photo" alt="blog photos">
+    <p class="footer-blog-text">Daily special foods that you will going to love</p>
+    <p class="footer-blog-date">29 may 2015</p>
+     </a>
+    </div>
+    </div>
+    <div class="col-md-4  col-sm-6">
+    <h1>Reach us</h1>
+    <div class="footer-social-icons">
+    <a href="https://www.facebook.com/">
+    <i class="fa fa-facebook-square"></i>
+    </a>
+    <a href="https://www.twitter.com/">
+    <i class="fa fa-twitter"></i>
+    </a>
+    <a href="https://plus.google.com/">
+    <i class="fa fa-google"></i>
+    </a>
+    <a href="https://www.youtube.com/">
+    <i class="fa fa-youtube-play"></i>
+    </a>
+    <a href="https://www.vimeo.com/">
+    <i class="fa fa-vimeo"></i>
+    </a>
+    <a href="https://www.pinterest.com/">
+    <i class="fa fa-pinterest-p"></i>
+    </a>
+    <a href="http://www.linkedin.com/">
+    <i class="fa fa-linkedin"></i>
+    </a>
+    </div>
+    <div class="footer-address">
+    <p><i class="fa fa-map-marker"></i>28 Seventh Avenue, Neew York, 10014</p>
+    <p><i class="fa fa-phone"></i>Phone: (415) 124-5678</p>
+    <p><i class="fa fa-envelope-o"></i><a href="https://demo.web3canvas.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fc8f898c8c938e88bc8e998f889d898e9d9288d29f9391">[email&#160;protected]</a></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <div class="footer-copyrights">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+    <p><i class="fa fa-copyright"></i> 2015.Tomato.All rights reserved. Designed with <i class="fa fa-heart primary-color"></i> by Surjithctly</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    </div>
+    </div>
+    
